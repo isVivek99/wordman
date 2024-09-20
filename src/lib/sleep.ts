@@ -22,3 +22,10 @@ export const makeExpensive = <T extends (...args: any[]) => any>(
     return fn(...args);
   };
 };
+
+export const makeExpensive2 = (fn: any, duration = defaultDuration) => {
+  return (...args: any) => {
+    block(duration);
+    return fn(...args);
+  };
+};
